@@ -1,36 +1,5 @@
-let secretPlayer = null;
-let normalmode = document.getElementById('normal-mode');
-let easymode = document.getElementById('easy-mode');
-let hardmode = document.getElementById('hard-mode');
-
-let timerButton = document.getElementById('timer');
-
-normalmode.disabled = true;
-
-////Toggle for Button - Start
-[normalmode, easymode, hardmode].forEach((button, i) => {
-  button.addEventListener('click', () => {
-    if (button === normalmode) {
-      easymode.disabled = false;
-      hardmode.disabled = false;
-    } else if (button === easymode) {
-      normalmode.disabled = false;
-      hardmode.disabled = false;
-    } else {
-      normalmode.disabled = false;
-      easymode.disabled = false;
-    }
-    button.disabled = true;
-    resetGame();
-  });
-});
-
-////Toggle for Buttons - End
-
-///Player List - Start
-
-const playerList = [
-  {value: 'Alaa Abdelnaby' , datadecade: 1980 , datastart: 1986 , datayears: 4 , dataposition: 'C' , dataheight: 610 , datanumber: 30, gamemode: 'easy', fact: 'NBA 1st Round Pick, @alaatweets @alaasgram'},
+/////Player List - Start
+const playerList = [{value: 'Alaa Abdelnaby' , datadecade: 1980 , datastart: 1986 , datayears: 4 , dataposition: 'C' , dataheight: 610 , datanumber: 30, gamemode: 'easy', fact: 'NBA 1st Round Pick, Twitter: @alaatweets Insta: @alaasgram'},
 {value: 'Mark Alarie' , datadecade: 1980 , datastart: 1982 , datayears: 4 , dataposition: 'F' , dataheight: 608 , datanumber: 32, gamemode: 'normal', fact: 'NBA 1st Round Pick'},
 {value: 'Grayson Allen' , datadecade: 2010 , datastart: 2014 , datayears: 4 , dataposition: 'G' , dataheight: 605 , datanumber: 3, gamemode: 'easy', fact: 'Current NBA Player, 1st Round Pick'},
 {value: 'Tommy Amaker' , datadecade: 1980 , datastart: 1983 , datayears: 4 , dataposition: 'G' , dataheight: 600 , datanumber: 4, gamemode: 'normal', fact: 'Former NBA Player, Current Head Coach of Harvard Basketball'},
@@ -42,16 +11,16 @@ const playerList = [
 {value: 'RJ Barrett' , datadecade: 2010 , datastart: 2018 , datayears: 1 , dataposition: 'F' , dataheight: 607 , datanumber: 5, gamemode: 'easy', fact: '3rd Overall NBA Draft Pick'},
 {value: 'Shane Battier' , datadecade: 1990 , datastart: 1997 , datayears: 4 , dataposition: 'F' , dataheight: 608 , datanumber: 31, gamemode: 'easy', fact: 'NCAA Champion (2001) & 2x NBA Champion'},
 {value: 'Joey Beard' , datadecade: 1990 , datastart: 1990 , datayears: 4 , dataposition: 'F' , dataheight: 609 , datanumber: 42, gamemode: 'hard', fact: ''},
-{value: 'Neal  Begovich' , datadecade: 2020 , datastart: 2023 , datayears: 1 , dataposition: 'F' , dataheight: 609 , datanumber: 20, gamemode: 'easy', fact: '@nealbegovich , Graduate Transfer from Stanford'},
+{value: 'Neal  Begovich' , datadecade: 2020 , datastart: 2023 , datayears: 1 , dataposition: 'F' , dataheight: 609 , datanumber: 20, gamemode: 'easy', fact: 'Insta: @nealbegovich , Graduate Transfer from Stanford'},
 {value: 'Andy Berndt' , datadecade: 1980 , datastart: 1985 , datayears: 2 , dataposition: 'G' , dataheight: 606 , datanumber: 0, gamemode: 'hard', fact: 'Frat Brother of Steven Siegel'},
 {value: 'Brennan Besser' , datadecade: 2010 , datastart: 2015 , datayears: 4 , dataposition: 'G' , dataheight: 605 , datanumber: 53, gamemode: 'hard', fact: ''},
 {value: 'Jay Bilas' , datadecade: 1980 , datastart: 1982 , datayears: 4 , dataposition: 'C' , dataheight: 608 , datanumber: 21, gamemode: 'easy', fact: 'ESPN College Basketball Analyst, Lawyer, and NCAA Final 4 & Runner-Up '},
 {value: 'Kenny Blakeney' , datadecade: 1990 , datastart: 1991 , datayears: 4 , dataposition: 'G' , dataheight: 604 , datanumber: 4, gamemode: 'hard', fact: ''},
-{value: 'Jaylen Blakes' , datadecade: 2020 , datastart: 2021 , datayears: 3 , dataposition: 'G' , dataheight: 602 , datanumber: 2, gamemode: 'easy', fact: '@j.b00gi , Batman Mask'},
+{value: 'Jaylen Blakes' , datadecade: 2020 , datastart: 2021 , datayears: 3 , dataposition: 'G' , dataheight: 602 , datanumber: 2, gamemode: 'easy', fact: 'Insta: @j.b00gi , Batman Mask'},
 {value: 'Eric Boateng' , datadecade: 2000 , datastart: 2005 , datayears: 1 , dataposition: 'C' , dataheight: 610 , datanumber: 45, gamemode: 'hard', fact: ''},
 {value: 'Marques Bolden' , datadecade: 2010 , datastart: 2016 , datayears: 3 , dataposition: 'C' , dataheight: 611 , datanumber: 20, gamemode: 'hard', fact: ''},
 {value: 'Carlos Boozer' , datadecade: 2000 , datastart: 2001 , datayears: 3 , dataposition: 'F' , dataheight: 609 , datanumber: 4, gamemode: 'easy', fact: '2x NBA All-Star, NCAA Champion (2001), Highest FG Percentage in Duke History'},
-{value: 'Stanley Borden' , datadecade: 2020 , datastart: 2021 , datayears: 3 , dataposition: 'C' , dataheight: 700 , datanumber: 52, gamemode: 'easy', fact: '@stanleysborden'},
+{value: 'Stanley Borden' , datadecade: 2020 , datastart: 2021 , datayears: 3 , dataposition: 'C' , dataheight: 700 , datanumber: 52, gamemode: 'easy', fact: 'Insta: @stanleysborden'},
 {value: 'Andy Borman' , datadecade: 1990 , datastart: 1999 , datayears: 3 , dataposition: 'G' , dataheight: 601 , datanumber: 40, gamemode: 'hard', fact: ''},
 {value: 'Jamal Boykin' , datadecade: 2000 , datastart: 2005 , datayears: 1 , dataposition: 'F' , dataheight: 607 , datanumber: 34, gamemode: 'hard', fact: ''},
 {value: 'Jaemyn Brakefield' , datadecade: 2020 , datastart: 2020 , datayears: 1 , dataposition: 'F' , dataheight: 608 , datanumber: 5, gamemode: 'normal', fact: ''},
@@ -95,7 +64,7 @@ const playerList = [
 {value: 'Daniel Ewing' , datadecade: 2000 , datastart: 2001 , datayears: 4 , dataposition: 'G' , dataheight: 603 , datanumber: 5, gamemode: 'hard', fact: 'Former NBA Player, Texas Mr. Basketball (2001)'},
 {value: 'Danny Ferry' , datadecade: 1980 , datastart: 1985 , datayears: 4 , dataposition: 'F' , dataheight: 610 , datanumber: 35, gamemode: 'easy', fact: 'NBA Champion, Naismith College Player of the Year (1989), #35 Jersey was Retired by Duke, 2nd Overall NBA Draft Pick'},
 {value: 'Kyle Filipowski' , datadecade: 2020 , datastart: 2022 , datayears: 2 , dataposition: 'C' , dataheight: 700 , datanumber: 30, gamemode: 'easy', fact: 'ACC Rookie of the Year, Insta: @kyleflip Twitter: @kylefilipowski'},
-{value: 'Caleb Foster' , datadecade: 2020 , datastart: 2023 , datayears: 1 , dataposition: 'G' , dataheight: 605 , datanumber: 1, gamemode: 'easy', fact: '@iamcalebfoster , 5-Star Recruit'},
+{value: 'Caleb Foster' , datadecade: 2020 , datastart: 2023 , datayears: 1 , dataposition: 'G' , dataheight: 605 , datanumber: 1, gamemode: 'easy', fact: 'Insta: @iamcalebfoster , 5-Star Recruit'},
 {value: 'Michael Gbinije' , datadecade: 2010 , datastart: 2011 , datayears: 1 , dataposition: 'F' , dataheight: 607 , datanumber: 13, gamemode: 'hard', fact: ''},
 {value: 'Harry Giles' , datadecade: 2010 , datastart: 2016 , datayears: 1 , dataposition: 'F' , dataheight: 610 , datanumber: 1, gamemode: 'normal', fact: 'Current NBA Player, 1st Round Pick'},
 {value: 'Jordan Goldwire' , datadecade: 2010 , datastart: 2017 , datayears: 4 , dataposition: 'G' , dataheight: 602 , datanumber: 14, gamemode: 'normal', fact: ''},
@@ -146,7 +115,7 @@ const playerList = [
 {value: 'Corey Maggette' , datadecade: 1990 , datastart: 1998 , datayears: 1 , dataposition: 'F' , dataheight: 606 , datanumber: 50, gamemode: 'normal', fact: 'Former NBA Player, 1st Round Pick'},
 {value: 'David Mayer' , datadecade: 2010 , datastart: 2010 , datayears: 1 , dataposition: 'G' , dataheight: 604 , datanumber: 51, gamemode: 'hard', fact: ''},
 {value: 'Bill McCaffrey' , datadecade: 1980 , datastart: 1989 , datayears: 1 , dataposition: 'G' , dataheight: 603 , datanumber: 5, gamemode: 'hard', fact: ''},
-{value: 'Jared McCain' , datadecade: 2020 , datastart: 2023 , datayears: 1 , dataposition: 'G' , dataheight: 603 , datanumber: 0, gamemode: 'easy', fact: '@jmccain24 , 5-Star Recruit, McDonald\'s All-American, California Gatorade Player of the Year'},
+{value: 'Jared McCain' , datadecade: 2020 , datastart: 2023 , datayears: 1 , dataposition: 'G' , dataheight: 603 , datanumber: 0, gamemode: 'easy', fact: 'Insta: @jmccain24 , 5-Star Recruit, McDonald\'s All-American, California Gatorade Player of the Year, 5:08 Mile Time'},
 {value: 'David McClure' , datadecade: 2000 , datastart: 2005 , datayears: 4 , dataposition: 'F' , dataheight: 606 , datanumber: 14, gamemode: 'hard', fact: ''},
 {value: 'Roshown Mcleod' , datadecade: 1990 , datastart: 1996 , datayears: 2 , dataposition: 'F' , dataheight: 608 , datanumber: 4, gamemode: 'normal', fact: 'Former NBA Player, 1st Round Pick'},
 {value: 'Doug McNeely' , datadecade: 1980 , datastart: 1980 , datayears: 4 , dataposition: 'F' , dataheight: 604 , datanumber: 11, gamemode: 'hard', fact: ''},
@@ -202,7 +171,7 @@ const playerList = [
 {value: 'Quin Snyder' , datadecade: 1980 , datastart: 1985 , datayears: 4 , dataposition: 'G' , dataheight: 603 , datanumber: 14, gamemode: 'easy', fact: 'Current Head Coach of the Atlanta Hawks, Former Utah Jazz Head Coach, Team Captain at Duke'},
 {value: 'Cassius Stanley' , datadecade: 2010 , datastart: 2019 , datayears: 1 , dataposition: 'G' , dataheight: 606 , datanumber: 2, gamemode: 'normal', fact: 'Current NBA Player, 2nd Round Pick'},
 {value: 'DJ Steward' , datadecade: 2020 , datastart: 2020 , datayears: 1 , dataposition: 'G' , dataheight: 602 , datanumber: 2, gamemode: 'normal', fact: 'ACC All-Freshman Team'},
-{value: 'Sean  Stewart' , datadecade: 2020 , datastart: 2023 , datayears: 1 , dataposition: 'F' , dataheight: 609 , datanumber: 13, gamemode: 'easy', fact: '@sean13stewart , 5-Star Recruit, McDonald\'s All-American'},
+{value: 'Sean  Stewart' , datadecade: 2020 , datastart: 2023 , datayears: 1 , dataposition: 'F' , dataheight: 609 , datanumber: 13, gamemode: 'easy', fact: 'Insta: @sean13stewart , 5-Star Recruit, McDonald\'s All-American'},
 {value: 'Kevin Strickland' , datadecade: 1980 , datastart: 1984 , datayears: 4 , dataposition: 'G' , dataheight: 605 , datanumber: 31, gamemode: 'normal', fact: ''},
 {value: 'Rasheed Sulaimon' , datadecade: 2010 , datastart: 2012 , datayears: 2 , dataposition: 'G' , dataheight: 604 , datanumber: 14, gamemode: 'normal', fact: 'ACC All-Freshman Team'},
 {value: 'Nick Sutton' , datadecade: 2000 , datastart: 2006 , datayears: 1 , dataposition: 'G' , dataheight: 602 , datanumber: 13, gamemode: 'hard', fact: ''},
@@ -228,85 +197,113 @@ const playerList = [
 {value: 'Keenan Worthington' , datadecade: 2010 , datastart: 2019 , datayears: 4 , dataposition: 'F' , dataheight: 606 , datanumber: 45, gamemode: 'normal', fact: ''},
 {value: 'Ryan Young' , datadecade: 2020 , datastart: 2022 , datayears: 2 , dataposition: 'C' , dataheight: 610 , datanumber: 15, gamemode: 'easy', fact: 'Insta: @ryan_young23'},
 {value: 'Todd Zafirovski' , datadecade: 2000 , datastart: 2009 , datayears: 5 , dataposition: 'F' , dataheight: 609 , datanumber: 52, gamemode: 'hard', fact: ''},
-{value: 'Brian Zoubek' , datadecade: 2000 , datastart: 2006 , datayears: 4 , dataposition: 'C' , dataheight: 701 , datanumber: 55, gamemode: 'hard', fact: 'NCAA Champion (2010)'}
-]
-
-///Player List - End
-
-// Pick a secret player at random - Start
-function pickSecretPlayer() {
-  const playerSelect = document.getElementById('player-list');
-
-  //Easy Mode - Start//
-if (easymode.disabled === true) {
-  const easyPlayers = playerList.filter(player => player.gamemode === 'easy');
+{value: 'Brian Zoubek' , datadecade: 2000 , datastart: 2006 , datayears: 4 , dataposition: 'C' , dataheight: 701 , datanumber: 55, gamemode: 'hard', fact: 'NCAA Champion (2010)'}]
   
-  // Create options for the easy players
-  easyPlayers.forEach((player) => {
-    const option = document.createElement('option');
-    option.value = player.value;
-    option.text = player.value;
-    playerSelect.appendChild(option);
+  ///Player List - End 
+  
+  let secretPlayer = null;
+  let normalmode = document.getElementById('normal-mode');
+  let easymode = document.getElementById('easy-mode');
+  let hardmode = document.getElementById('hard-mode');
+  
+  let timerButton = document.getElementById('timer');
+  
+  normalmode.disabled = true;
+  
+  /////////Input Button Change - Start
+
+  const inputEl = document.querySelector("#player-list");
+const autocompleteContainer = document.querySelector("#autocomplete-container");
+
+inputEl.addEventListener("input", onInputChange);
+
+function onInputChange() {
+    removeAutocompleteDropdown();
+  
+    const value = inputEl.value.toLowerCase();
+  
+    if (value.length === 0) return;
+  
+    let filteredPlayers = [];
+  
+    if (easymode.disabled) {
+      filteredPlayers = playerList.filter((player) =>
+        player.value.toLowerCase().includes(value) && player.gamemode === "easy"
+      );
+    } else if (normalmode.disabled) {
+      filteredPlayers = playerList.filter((player) =>
+        player.value.toLowerCase().includes(value) &&
+        (player.gamemode === "easy" || player.gamemode === "normal")
+      );
+    } else if (hardmode.disabled) {
+      filteredPlayers = playerList.filter((player) =>
+        player.value.toLowerCase().includes(value)
+      );
+    }
+  
+    createAutoCompleteDropdown(filteredPlayers);
+  }
+  
+
+  function createAutoCompleteDropdown(filteredPlayers) {
+    const listEl = document.createElement("ul");
+    listEl.className = "autocomplete-list";
+    listEl.id = "autocomplete-list";
+  
+    filteredPlayers.forEach((player) => {
+      const listItem = document.createElement("li");
+      const playerButton = document.createElement("button");
+      playerButton.innerHTML = player.value;
+      playerButton.addEventListener("click", () => {
+        inputEl.value = player.value;
+        listEl.innerHTML = ""; // Clear the dropdown after selection
+      });
+      listItem.appendChild(playerButton);
+      listEl.appendChild(listItem);
+    });
+  
+    autocompleteContainer.appendChild(listEl);
+  }
+  
+
+function removeAutocompleteDropdown() {
+  const listEl = document.querySelector("#autocomplete-list");
+  if (listEl) listEl.remove();
+}
+
+  //////Input Button Change - End
+  
+  ////Toggle for Button - Start
+  [normalmode, easymode, hardmode].forEach((button, i) => {
+    button.addEventListener('click', () => {
+      if (button === normalmode) {
+        easymode.disabled = false;
+        hardmode.disabled = false;
+      } else if (button === easymode) {
+        normalmode.disabled = false;
+        hardmode.disabled = false;
+      } else {
+        normalmode.disabled = false;
+        easymode.disabled = false;
+      }
+      button.disabled = true;
+      resetGame();
+    });
   });
-
-  // Get a random index for selecting a player
-  const playerIndex = Math.floor(Math.random() * easyPlayers.length);
-
-  // Get the selected player's attributes
-  const selectedPlayer = easyPlayers[playerIndex];
-  const name = selectedPlayer.value;
-  const decade = selectedPlayer.datadecade;
-  const start = selectedPlayer.datastart;
-  const years = selectedPlayer.datayears;
-  const position = selectedPlayer.dataposition;
-  const height = selectedPlayer.dataheight;
-  const number = selectedPlayer.datanumber;
-
-  const fact = selectedPlayer.fact;
   
-  // Set the selected player as the secret player
-  secretPlayer = { name, decade, start, years, position, height, number, fact };
-}
-
-
-  
-//Easy Mode - End//
+  ////Toggle for Buttons - End
   
   
-  ////Normal Mode///
-  if (normalmode.disabled === true) {
-  const normalPlayers = playerList.filter(player => player.gamemode === 'easy' || player.gamemode === 'normal');
+  // Pick a secret player at random - Start
+  function pickSecretPlayer() {
+    const playerSelect = document.getElementById('player-list');
   
-    // Create options for the normal players
-    normalPlayers.forEach((player) => {
-      const option = document.createElement('option');
-      option.value = player.value;
-      option.text = player.value;
-      playerSelect.appendChild(option);
-    });
-
-    // Get a random index for selecting a player
-    const playerIndex = Math.floor(Math.random() * normalPlayers.length);
-
-    // Get the selected player's attributes
-    const selectedPlayer = normalPlayers[playerIndex];
-    const name = selectedPlayer.value;
-    const decade = selectedPlayer.datadecade;
-    const start = selectedPlayer.datastart;
-    const years = selectedPlayer.datayears;
-    const position = selectedPlayer.dataposition;
-    const height = selectedPlayer.dataheight;
-    const number = selectedPlayer.datanumber;
+    //Easy Mode - Start//
+  if (easymode.disabled === true) {
+    const easyPlayers = playerList.filter(player => player.gamemode === 'easy');
     
-    const fact = selectedPlayer.fact;
-
-    // Set the selected player as the secret player
-    secretPlayer = { name, decade, start, years, position, height, number, fact };
-  }
-  
-//Hard Mode - Start /
-  if (hardmode.disabled === true) {
-    playerList.forEach((player) => {
+    // Create options for the easy players
+    easyPlayers.forEach((player) => {
       const option = document.createElement('option');
       option.value = player.value;
       option.text = player.value;
@@ -314,10 +311,10 @@ if (easymode.disabled === true) {
     });
   
     // Get a random index for selecting a player
-    const playerIndex = Math.floor(Math.random() * playerList.length);
-
+    const playerIndex = Math.floor(Math.random() * easyPlayers.length);
+  
     // Get the selected player's attributes
-    const selectedPlayer = playerList[playerIndex];
+    const selectedPlayer = easyPlayers[playerIndex];
     const name = selectedPlayer.value;
     const decade = selectedPlayer.datadecade;
     const start = selectedPlayer.datastart;
@@ -325,324 +322,421 @@ if (easymode.disabled === true) {
     const position = selectedPlayer.dataposition;
     const height = selectedPlayer.dataheight;
     const number = selectedPlayer.datanumber;
+  
     const fact = selectedPlayer.fact;
+    
     // Set the selected player as the secret player
     secretPlayer = { name, decade, start, years, position, height, number, fact };
   }
-  ///Hard Mode End
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Call the pickSecretPlayer() function to set the initial secret player
-  pickSecretPlayer()
+  
+  
+    
+  //Easy Mode - End//
+    
+    
+    ////Normal Mode///
+    if (normalmode.disabled === true) {
+    const normalPlayers = playerList.filter(player => player.gamemode === 'easy' || player.gamemode === 'normal');
+    
+      // Create options for the normal players
+      normalPlayers.forEach((player) => {
+        const option = document.createElement('option');
+        option.value = player.value;
+        option.text = player.value;
+        playerSelect.appendChild(option);
+      });
+  
+      // Get a random index for selecting a player
+      const playerIndex = Math.floor(Math.random() * normalPlayers.length);
+  
+      // Get the selected player's attributes
+      const selectedPlayer = normalPlayers[playerIndex];
+      const name = selectedPlayer.value;
+      const decade = selectedPlayer.datadecade;
+      const start = selectedPlayer.datastart;
+      const years = selectedPlayer.datayears;
+      const position = selectedPlayer.dataposition;
+      const height = selectedPlayer.dataheight;
+      const number = selectedPlayer.datanumber;
+      
+      const fact = selectedPlayer.fact;
+  
+      // Set the selected player as the secret player
+      secretPlayer = { name, decade, start, years, position, height, number, fact };
+    }
+    
+  //Hard Mode - Start /
+    if (hardmode.disabled === true) {
+      playerList.forEach((player) => {
+        const option = document.createElement('option');
+        option.value = player.value;
+        option.text = player.value;
+        playerSelect.appendChild(option);
+      });
+    
+      // Get a random index for selecting a player
+      const playerIndex = Math.floor(Math.random() * playerList.length);
+  
+      // Get the selected player's attributes
+      const selectedPlayer = playerList[playerIndex];
+      const name = selectedPlayer.value;
+      const decade = selectedPlayer.datadecade;
+      const start = selectedPlayer.datastart;
+      const years = selectedPlayer.datayears;
+      const position = selectedPlayer.dataposition;
+      const height = selectedPlayer.dataheight;
+      const number = selectedPlayer.datanumber;
+      const fact = selectedPlayer.fact;
+      // Set the selected player as the secret player
+      secretPlayer = { name, decade, start, years, position, height, number, fact };
+    }
+    ///Hard Mode End
+  }
+  
+    document.addEventListener('DOMContentLoaded', function() {
+    // Call the pickSecretPlayer() function to set the initial secret player
+    pickSecretPlayer()
+  });
   
   document.getElementById("guess-button").addEventListener("click", function() {
     updateTable();
+    clearInputField();
   });
-});
-
-
-/// Secret Player - End
-
-////////
-
-//////// Update Table - Start
-
-function updateTable() {
-  // Get the selected player option from the dropdown menu
-  const selectedOption = document.getElementById("player-list").value;
-  const selectedIndex = playerList.map(e => e.value).indexOf(selectedOption);
-
-  //// Score Counter & Fun Fact with correct answer choice- if function (start) ///
-  if (playerList[selectedIndex].value === secretPlayer.name) {
-    ///Fun Fact presented when answer is correct
-    document.getElementById("player-list").disabled = true;
-    document.getElementById("guess-button").disabled = true;
-    // Assuming that the secret player object is already defined
-const secretPlayerNameCorrect = document.createTextNode(secretPlayer.name);
-const secretPlayerNameContainerCorrect = document.getElementById("secret-player-name");
-secretPlayerNameContainerCorrect.appendChild(secretPlayerNameCorrect);
-    /////Fun Fact Section - Sub-start
-const secretPlayerFactCorrect = document.createTextNode(secretPlayer.fact);
-
-const secretPlayerFactContainerCorrect = document.getElementById("secret-player-fact");
-secretPlayerFactContainerCorrect.appendChild(secretPlayerFactCorrect);
-    ///Runs the correct guess function as well
-    correctGuess();
+  
+  function clearInputField() {
+    inputEl.value = "";
   }
   
-  //// Score Counter - if function (end) ///
+  /// Secret Player - End
+  
+  ////////
+  
+  //////// Update Table - Start
+  
+  function updateTable() {
+    const selectedOption = document.getElementById("player-list").value;
+    const selectedIndex = playerList.map(e => e.value).indexOf(selectedOption);
+  
+    if (playerList[selectedIndex].value === secretPlayer.name) {
+      // Disable UI elements
+      document.getElementById("player-list").disabled = true;
+      document.getElementById("guess-button").disabled = true;
+  
+      // Clear the secret player fact container before appending
+      const secretPlayerFactContainer = document.getElementById("secret-player-fact");
+      secretPlayerFactContainer.innerHTML = "";  // Clear the content before appending
+  
+      // Append the new fact to the cleared container
+      const secretPlayerFactCorrect = document.createTextNode(secretPlayer.fact);
+      secretPlayerFactContainer.appendChild(secretPlayerFactCorrect);
+  
+      // Runs the correct guess function as well
+      correctGuess();
+    }
+    
+    //// Score Counter - if function (end) ///
+    
+    
+    // Get the player row that needs to be updated
+    let rowNumber = 0;
+    for (let i = 1; i <= 6; i++) {
+      if (!document.querySelector(`#guess-row-${i} .player-${i}`).innerHTML) {
+        rowNumber = i;
+        break;
+      }
+    }
+  
+    // Update the table with the selected player's attributes
+    const selectedPlayer = document.querySelector(
+      `option[value="${selectedOption}"]`
+    );
+  
+    document.querySelector(`#guess-row-${rowNumber} .player-${rowNumber}`).innerHTML =
+      playerList[selectedIndex].value;
+    document.querySelector(`#guess-row-${rowNumber} .decade-${rowNumber}`).innerHTML =
+     playerList[selectedIndex].datadecade;
+    document.querySelector(`#guess-row-${rowNumber} .first-year-${rowNumber}`).innerHTML =
+      playerList[selectedIndex].datastart;
+    document.querySelector(`#guess-row-${rowNumber} .num-years-${rowNumber}`).innerHTML =
+      playerList[selectedIndex].datayears;
+    document.querySelector(`#guess-row-${rowNumber} .position-${rowNumber}`).innerHTML =
+      playerList[selectedIndex].dataposition;
+    document.querySelector(`#guess-row-${rowNumber} .height-${rowNumber}`).innerHTML =
+      playerList[selectedIndex].dataheight;
+    document.querySelector(`#guess-row-${rowNumber} .number-${rowNumber}`).innerHTML =
+      playerList[selectedIndex].datanumber;
+  
+    // Check if the selected player matches the secret player
+    if (playerList[selectedIndex].value === secretPlayer.name) {
+        const guessedRow = document.querySelector(`#guess-row-${rowNumber}`);
+      
+        // Add the "guessed" class to the entire row
+        guessedRow.classList.add("guessed");
+      
+        // Add the "guessed" class to all cells in the row
+        guessedRow.querySelectorAll('td').forEach(cell => {
+          cell.classList.add("guessed");
+        });
+      
+        // Add the "guessed" class to cells for additional player data
+        guessedRow.querySelector(`.decade`).classList.add("guessed");
+        guessedRow.querySelector(`.start`).classList.add("guessed");
+        guessedRow.querySelector(`.years`).classList.add("guessed");
+        guessedRow.querySelector(`.position`).classList.add("guessed");
+        guessedRow.querySelector(`.height`).classList.add("guessed");
+        guessedRow.querySelector(`.number`).classList.add("guessed");
+      
+        // Disable UI elements
+        document.getElementById("player-list").disabled = true;
+        document.getElementById("guess-button").disabled = true;
+      }
+      
+      
+  
+   // Check if the selected player's decade matches with the secret player's decade
+  if (playerList[selectedIndex].datadecade === secretPlayer.decade) {
+    document.querySelector(`#guess-row-${rowNumber} .decade-${rowNumber}`).classList.add("matched");
+  } else if (Math.abs(playerList[selectedIndex].datadecade - secretPlayer.decade) <= 10) {
+    document.querySelector(`#guess-row-${rowNumber} .decade-${rowNumber}`).classList.add("close");
+  }
+  
+  // Check if the selected player's start year matches with the secret player's start year
+  if (playerList[selectedIndex].datastart === secretPlayer.start) {
+    document.querySelector(`#guess-row-${rowNumber} .first-year-${rowNumber}`).classList.add("matched");
+  } else if (Math.abs(playerList[selectedIndex].datastart - secretPlayer.start) <= 2) {
+    document.querySelector(`#guess-row-${rowNumber} .first-year-${rowNumber}`).classList.add("close");
+  }
+  
+  // Check if the selected player's number of years matches with the secret player's number of years
+  if (playerList[selectedIndex].datayears === secretPlayer.years) {
+    document.querySelector(`#guess-row-${rowNumber} .num-years-${rowNumber}`).classList.add("matched");
+  }else if (Math.abs(playerList[selectedIndex].datayears - secretPlayer.years) <= 2) {
+    document.querySelector(`#guess-row-${rowNumber} .num-years-${rowNumber}`).classList.add("close");
+  }
+  
+  // Check if the selected player's position matches with the secret player's position
+  if (playerList[selectedIndex].dataposition === secretPlayer.position) {
+    document.querySelector(`#guess-row-${rowNumber} .position-${rowNumber}`).classList.add("matched");
+  }
+  
+  // Check if the selected player's height matches with the secret player's height
+  if (playerList[selectedIndex].dataheight === secretPlayer.height) {
+    document.querySelector(`#guess-row-${rowNumber} .height-${rowNumber}`).classList.add("matched");
+  } else if (Math.abs(playerList[selectedIndex].dataheight - secretPlayer.height) <= 2) {
+    document.querySelector(`#guess-row-${rowNumber} .height-${rowNumber}`).classList.add("close");
+  } else if (Math.abs(playerList[selectedIndex].dataheight - secretPlayer.height) >= 89 && Math.abs(playerList[selectedIndex].dataheight - secretPlayer.height) <= 90) {
+    document.querySelector(`#guess-row-${rowNumber} .height-${rowNumber}`).classList.add("close");
+  }
+  
+  // Check if the selected player's number matches with the secret player's number
+  if (playerList[selectedIndex].datanumber === secretPlayer.number) {
+    document.querySelector(`#guess-row-${rowNumber} .number-${rowNumber}`).classList.add("matched");
+  } else if (Math.abs(playerList[selectedIndex].datanumber - secretPlayer.number) <= 2) {
+    document.querySelector(`#guess-row-${rowNumber} .number-${rowNumber}`).classList.add("close");
+  }
+  
+    // Disable the dropdown menu after 6 selections or when rowNumber is 6
+    const numSelections = document.querySelectorAll(".player-6:not(:empty)").length;
+    if (numSelections === 6 || rowNumber === 6) {
+        document.getElementById("player-list").disabled = true;
+        document.getElementById("guess-button").disabled = true;
+        // Assuming that the secret player object is already defined
+        const secretPlayerName = document.createTextNode(secretPlayer.name);
+        const secretPlayerNameContainer = document.getElementById("secret-player-name");
+        secretPlayerNameContainer.appendChild(secretPlayerName);
+
+        // Append the fact only if it's not already appended
+        const secretPlayerFactContainer = document.getElementById("secret-player-fact");
+        if (secretPlayerFactContainer.innerHTML === "") {
+            const secretPlayerFact = document.createTextNode(secretPlayer.fact);
+            secretPlayerFactContainer.appendChild(secretPlayerFact);
+        }
+    }
+
+  }
+      ///// Fun Fact Section: Sub-End
+      
+    
+      
+  
+  ////// Reset the Game
+  
+  document.getElementById("reset-button").addEventListener("click", function() {
+    resetGame();
+  });
+  
+  //////// Update Table - End
+  
+  /////////
+  // Reset the game function - Start
+  
+  function resetGame() {
+    ///void the player-list
+     const playerList = document.getElementById("player-list");
+    playerList.innerHTML = "";
+    inputEl.value = "";
+    removeAutocompleteDropdown();
+    // Reset the secret player
+   
+    pickSecretPlayer();
+  
+    // Clear all player guesses
+    for (let i = 1; i <= 6; i++) {
+      document.querySelector(`#guess-row-${i} .player-${i}`).innerHTML = "";
+      document.querySelector(`#guess-row-${i} .decade-${i}`).innerHTML = "";
+      document.querySelector(`#guess-row-${i} .first-year-${i}`).innerHTML = "";
+      document.querySelector(`#guess-row-${i} .num-years-${i}`).innerHTML = "";
+      document.querySelector(`#guess-row-${i} .position-${i}`).innerHTML = "";
+      document.querySelector(`#guess-row-${i} .height-${i}`).innerHTML = "";
+      document.querySelector(`#guess-row-${i} .number-${i}`).innerHTML = "";
+      document.querySelector(`#guess-row-${i}`).classList.remove("guessed");
+      document.querySelector(`#guess-row-${i} .player-${i}`).classList.remove("guessed");
+      document.querySelector(`#guess-row-${i} .decade-${i}`).classList.remove("guessed");
+      document.querySelector(`#guess-row-${i} .first-year-${i}`).classList.remove("guessed");
+      document.querySelector(`#guess-row-${i} .num-years-${i}`).classList.remove("guessed");
+      document.querySelector(`#guess-row-${i} .position-${i}`).classList.remove("guessed");
+      document.querySelector(`#guess-row-${i} .height-${i}`).classList.remove("guessed");
+      document.querySelector(`#guess-row-${i} .number-${i}`).classList.remove("guessed");
+      document.querySelector(`#guess-row-${i} .decade-${i}`).classList.remove("matched");
+      document.querySelector(`#guess-row-${i} .first-year-${i}`).classList.remove("matched");
+      document.querySelector(`#guess-row-${i} .num-years-${i}`).classList.remove("matched");
+      document.querySelector(`#guess-row-${i} .position-${i}`).classList.remove("matched");
+      document.querySelector(`#guess-row-${i} .height-${i}`).classList.remove("matched");
+      document.querySelector(`#guess-row-${i} .number-${i}`).classList.remove("matched");
+     document.querySelector(`#guess-row-${i} .decade-${i}`).classList.remove("close");
+      document.querySelector(`#guess-row-${i} .first-year-${i}`).classList.remove("close");
+      document.querySelector(`#guess-row-${i} .num-years-${i}`).classList.remove("close");
+      document.querySelector(`#guess-row-${i} .position-${i}`).classList.remove("close");
+      document.querySelector(`#guess-row-${i} .height-${i}`).classList.remove("close");
+      document.querySelector(`#guess-row-${i} .number-${i}`).classList.remove("close");
+      
+    }
+    // Reset the dropdown and enable it
+    const playerListReset = document.getElementById("player-list");
+    playerList.selectedIndex = 0;
+    playerList.disabled = false;
+    
+   const guessButton = document.getElementById("guess-button");
+    guessButton.selectedIndex = 0;
+    guessButton.disabled = false;
+    
+  
+    // Clear the secret player name
+    const secretPlayerNameContainer = document.getElementById("secret-player-name");
+    secretPlayerNameContainer.innerHTML = "";
+    
+    const secretPlayerFactContainer = document.getElementById("secret-player-fact");
+    secretPlayerFactContainer.innerHTML = "";
+    
+  }
+   
+
+
+  /// Reset the Game Funciton - End
   
   
-  // Get the player row that needs to be updated
-  let rowNumber = 0;
-  for (let i = 1; i <= 6; i++) {
-    if (!document.querySelector(`#guess-row-${i} .player-${i}`).innerHTML) {
-      rowNumber = i;
-      break;
+  //// Score Tracker - Start /////
+  
+  function correctGuess(selectedIndex, secretPlayer) {
+    
+    if (playerList[selectedIndex] === secretPlayer) {
+      if (easymode.disabled===true) {   document.getElementById("easy-score").textContent++;
+      } if (normalmode.disabled===true) { document.getElementById("normal-score").textContent++;
+      } if (hardmode.disabled===true) {
+        document.getElementById("hard-score").textContent++;
+      }
     }
   }
-
-  // Update the table with the selected player's attributes
-  const selectedPlayer = document.querySelector(
-    `option[value="${selectedOption}"]`
-  );
-
-  document.querySelector(`#guess-row-${rowNumber} .player-${rowNumber}`).innerHTML =
-    playerList[selectedIndex].value;
-  document.querySelector(`#guess-row-${rowNumber} .decade-${rowNumber}`).innerHTML =
-   playerList[selectedIndex].datadecade;
-  document.querySelector(`#guess-row-${rowNumber} .first-year-${rowNumber}`).innerHTML =
-    playerList[selectedIndex].datastart;
-  document.querySelector(`#guess-row-${rowNumber} .num-years-${rowNumber}`).innerHTML =
-    playerList[selectedIndex].datayears;
-  document.querySelector(`#guess-row-${rowNumber} .position-${rowNumber}`).innerHTML =
-    playerList[selectedIndex].dataposition;
-  document.querySelector(`#guess-row-${rowNumber} .height-${rowNumber}`).innerHTML =
-    playerList[selectedIndex].dataheight;
-  document.querySelector(`#guess-row-${rowNumber} .number-${rowNumber}`).innerHTML =
-    playerList[selectedIndex].datanumber;
-
-  // Check if the selected player matches the secret player
-  if (playerList[selectedIndex].value === secretPlayer.name) {
- 
-    document.querySelector(`#guess-row-${rowNumber}`).classList.add("guessed");
-    document.getElementById("player-list").disabled = true;
-     document.getElementById("guess-button").disabled = true;
-
-    // Disable the dropdown
-  }
-
- // Check if the selected player's decade matches with the secret player's decade
-if (playerList[selectedIndex].datadecade === secretPlayer.decade) {
-  document.querySelector(`#guess-row-${rowNumber} .decade-${rowNumber}`).classList.add("matched");
-} else if (Math.abs(playerList[selectedIndex].datadecade - secretPlayer.decade) <= 10) {
-  document.querySelector(`#guess-row-${rowNumber} .decade-${rowNumber}`).classList.add("close");
-}
-
-// Check if the selected player's start year matches with the secret player's start year
-if (playerList[selectedIndex].datastart === secretPlayer.start) {
-  document.querySelector(`#guess-row-${rowNumber} .first-year-${rowNumber}`).classList.add("matched");
-} else if (Math.abs(playerList[selectedIndex].datastart - secretPlayer.start) <= 2) {
-  document.querySelector(`#guess-row-${rowNumber} .first-year-${rowNumber}`).classList.add("close");
-}
-
-// Check if the selected player's number of years matches with the secret player's number of years
-if (playerList[selectedIndex].datayears === secretPlayer.years) {
-  document.querySelector(`#guess-row-${rowNumber} .num-years-${rowNumber}`).classList.add("matched");
-}else if (Math.abs(playerList[selectedIndex].datayears - secretPlayer.years) <= 2) {
-  document.querySelector(`#guess-row-${rowNumber} .num-years-${rowNumber}`).classList.add("close");
-}
-
-// Check if the selected player's position matches with the secret player's position
-if (playerList[selectedIndex].dataposition === secretPlayer.position) {
-  document.querySelector(`#guess-row-${rowNumber} .position-${rowNumber}`).classList.add("matched");
-}
-
-// Check if the selected player's height matches with the secret player's height
-if (playerList[selectedIndex].dataheight === secretPlayer.height) {
-  document.querySelector(`#guess-row-${rowNumber} .height-${rowNumber}`).classList.add("matched");
-} else if (Math.abs(playerList[selectedIndex].dataheight - secretPlayer.height) <= 2) {
-  document.querySelector(`#guess-row-${rowNumber} .height-${rowNumber}`).classList.add("close");
-} else if (Math.abs(playerList[selectedIndex].dataheight - secretPlayer.height) >= 89 && Math.abs(playerList[selectedIndex].dataheight - secretPlayer.height) <= 90) {
-  document.querySelector(`#guess-row-${rowNumber} .height-${rowNumber}`).classList.add("close");
-}
-
-// Check if the selected player's number matches with the secret player's number
-if (playerList[selectedIndex].datanumber === secretPlayer.number) {
-  document.querySelector(`#guess-row-${rowNumber} .number-${rowNumber}`).classList.add("matched");
-} else if (Math.abs(playerList[selectedIndex].datanumber - secretPlayer.number) <= 2) {
-  document.querySelector(`#guess-row-${rowNumber} .number-${rowNumber}`).classList.add("close");
-}
-
-  // Disable the dropdown menu after 6 selections or when rowNumber is 6
-  const numSelections = document.querySelectorAll(".player-6:not(:empty)").length;
-  if (numSelections === 6 || rowNumber === 6) {
-    document.getElementById("player-list").disabled = true;
-    document.getElementById("guess-button").disabled = true;
-    // Assuming that the secret player object is already defined
-const secretPlayerName = document.createTextNode(secretPlayer.name);
-const secretPlayerNameContainer = document.getElementById("secret-player-name");
-secretPlayerNameContainer.appendChild(secretPlayerName);
-    /////Fun Fact Section - Sub-start
-const secretPlayerFact = document.createTextNode(secretPlayer.fact);
-
-const secretPlayerFactContainer = document.getElementById("secret-player-fact");
-secretPlayerFactContainer.appendChild(secretPlayerFact);
-  }
-}
-    ///// Fun Fact Section: Sub-End
+  
+  
+  ///// Score Tracker End ////////
+  
+  ///Timer Function - Start
+  
+  const easyScore = document.getElementById("easy-score");
+  const normalScore = document.getElementById("normal-score");
+  const hardScore = document.getElementById("hard-score");
+  
+  
+  function displayDisabledModeAndScores() {
     
-  
+    let disabledMode = '';
+    let score = '';
     
-
-////// Reset the Game
-
-document.getElementById("reset-button").addEventListener("click", function() {
-  resetGame();
-});
-
-//////// Update Table - End
-
-/////////
-// Reset the game function - Start
-
-function resetGame() {
-  ///void the player-list
-   const playerList = document.getElementById("player-list");
-  playerList.innerHTML = "";
-  
-  // Reset the secret player
- 
-  pickSecretPlayer();
-
-  // Clear all player guesses
-  for (let i = 1; i <= 6; i++) {
-    document.querySelector(`#guess-row-${i} .player-${i}`).innerHTML = "";
-    document.querySelector(`#guess-row-${i} .decade-${i}`).innerHTML = "";
-    document.querySelector(`#guess-row-${i} .first-year-${i}`).innerHTML = "";
-    document.querySelector(`#guess-row-${i} .num-years-${i}`).innerHTML = "";
-    document.querySelector(`#guess-row-${i} .position-${i}`).innerHTML = "";
-    document.querySelector(`#guess-row-${i} .height-${i}`).innerHTML = "";
-    document.querySelector(`#guess-row-${i} .number-${i}`).innerHTML = "";
-    document.querySelector(`#guess-row-${i}`).classList.remove("guessed");
-    document.querySelector(`#guess-row-${i} .decade-${i}`).classList.remove("matched");
-    document.querySelector(`#guess-row-${i} .first-year-${i}`).classList.remove("matched");
-    document.querySelector(`#guess-row-${i} .num-years-${i}`).classList.remove("matched");
-    document.querySelector(`#guess-row-${i} .position-${i}`).classList.remove("matched");
-    document.querySelector(`#guess-row-${i} .height-${i}`).classList.remove("matched");
-    document.querySelector(`#guess-row-${i} .number-${i}`).classList.remove("matched");
-   document.querySelector(`#guess-row-${i} .decade-${i}`).classList.remove("close");
-    document.querySelector(`#guess-row-${i} .first-year-${i}`).classList.remove("close");
-    document.querySelector(`#guess-row-${i} .num-years-${i}`).classList.remove("close");
-    document.querySelector(`#guess-row-${i} .position-${i}`).classList.remove("close");
-    document.querySelector(`#guess-row-${i} .height-${i}`).classList.remove("close");
-    document.querySelector(`#guess-row-${i} .number-${i}`).classList.remove("close");
-    
-  }
-  // Reset the dropdown and enable it
-  const playerListReset = document.getElementById("player-list");
-  playerList.selectedIndex = 0;
-  playerList.disabled = false;
-  
- const guessButton = document.getElementById("guess-button");
-  guessButton.selectedIndex = 0;
-  guessButton.disabled = false;
-
-  // Clear the secret player name
-  const secretPlayerNameContainer = document.getElementById("secret-player-name");
-  secretPlayerNameContainer.innerHTML = "";
-  
-  const secretPlayerFactContainer = document.getElementById("secret-player-fact");
-  secretPlayerFactContainer.innerHTML = "";
-  
-}
- 
-/// Reset the Game Funciton - End
-
-
-//// Score Tracker - Start /////
-
-function correctGuess(selectedIndex, secretPlayer) {
-  
-  if (playerList[selectedIndex] === secretPlayer) {
-    if (easymode.disabled===true) {   document.getElementById("easy-score").textContent++;
-    } if (normalmode.disabled===true) { document.getElementById("normal-score").textContent++;
-    } if (hardmode.disabled===true) {
-      document.getElementById("hard-score").textContent++;
-    }
-  }
-}
-
-
-///// Score Tracker End ////////
-
-///Timer Function - Start
-
-const easyScore = document.getElementById("easy-score");
-const normalScore = document.getElementById("normal-score");
-const hardScore = document.getElementById("hard-score");
-
-
-function displayDisabledModeAndScores() {
-  
-  let disabledMode = '';
-  let score = '';
-  
-  if (normalmode.disabled) {
-    disabledMode = 'Normal';
-    score = 'Score: ' + normalScore.textContent;
-  } else if (easymode.disabled) {
-    disabledMode = 'Easy';
-    score = 'Score: ' + easyScore.textContent;
-  } else if (hardmode.disabled) {
-    disabledMode = 'Hard';
-    score = 'Score: ' + hardScore.textContent;
-  }
-
-  // Display an alert with the currently disabled game mode and scores
-  alert('Hello - ' + disabledMode + ' Mode\n' + score);
-}
-
-// Add event listener to the timer button
-timerButton.addEventListener('click', () => {
-  // Disable the button when clicked
-  timerButton.disabled = true;
-  
-  // Call resetGame() immediately
-  resetGame();
-  
-  // Reset the scores
-  easyScore.textContent = '0';
-  normalScore.textContent = '0';
-  hardScore.textContent = '0';
-
-  setTimeout(() => {
-    // Call displayDisabledModeAndScores
-    displayDisabledModeAndScores();
-    
-    // Enable the button after the timer has completed
-    timerButton.disabled = false;
-  }, 60000); // Delayed execution after 15 seconds (adjust the time as needed)
-});
-
-
-// Function to check if the guess is correct and update the scores
-function correctGuess(selectedIndex, secretPlayer) {
-  if (playerList[selectedIndex] === secretPlayer) {
-    if (easymode.disabled) {
-      document.getElementById('easy-score').textContent++;
-    }
     if (normalmode.disabled) {
-      document.getElementById('normal-score').textContent++;
+      disabledMode = 'Normal';
+      score = 'Score: ' + normalScore.textContent;
+    } else if (easymode.disabled) {
+      disabledMode = 'Easy';
+      score = 'Score: ' + easyScore.textContent;
+    } else if (hardmode.disabled) {
+      disabledMode = 'Hard';
+      score = 'Score: ' + hardScore.textContent;
     }
-    if (hardmode.disabled) {
-      document.getElementById('hard-score').textContent++;
+  
+    // Display an alert with the currently disabled game mode and scores
+    alert(disabledMode + ' Mode\n' + score);
+  }
+  
+  // Add event listener to the timer button
+  timerButton.addEventListener('click', () => {
+    // Disable the button when clicked
+    timerButton.disabled = true;
+    
+    // Call resetGame() immediately
+    resetGame();
+    
+    // Reset the scores
+    easyScore.textContent = '0';
+    normalScore.textContent = '0';
+    hardScore.textContent = '0';
+  
+    setTimeout(() => {
+      // Call displayDisabledModeAndScores
+      displayDisabledModeAndScores();
+      
+      // Enable the button after the timer has completed
+      timerButton.disabled = false;
+    }, 60000); // Delayed execution after 15 seconds (adjust the time as needed)
+  });
+  
+  
+  // Function to check if the guess is correct and update the scores
+  function correctGuess(selectedIndex, secretPlayer) {
+    if (playerList[selectedIndex] === secretPlayer) {
+      if (easymode.disabled) {
+        document.getElementById('easy-score').textContent++;
+      }
+      if (normalmode.disabled) {
+        document.getElementById('normal-score').textContent++;
+      }
+      if (hardmode.disabled) {
+        document.getElementById('hard-score').textContent++;
+      }
     }
   }
-}
-
-///Timer Function - End
-
-////Prevention of Inspect Element - Start///
-
-// Disable right-click
-document.addEventListener('contextmenu', (e) => e.preventDefault());
-
-function ctrlShiftKey(e, keyCode) {
-  return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
-}
-
-document.onkeydown = (e) => {
-  // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
-  if (
-    event.keyCode === 123 ||
-    ctrlShiftKey(e, 'I') ||
-    ctrlShiftKey(e, 'J') ||
-    ctrlShiftKey(e, 'C') ||
-    (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
-  )
-    return false;
-};
-
-/////Prevention of Inspect Element - End/////
+  
+  ///Timer Function - End
+  
+  ////Prevention of Inspect Element - Start///
+  
+  // Disable right-click
+  document.addEventListener('contextmenu', (e) => e.preventDefault());
+  
+  function ctrlShiftKey(e, keyCode) {
+    return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+  }
+  
+  document.onkeydown = (e) => {
+    // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
+    if (
+      event.keyCode === 123 ||
+      ctrlShiftKey(e, 'I') ||
+      ctrlShiftKey(e, 'J') ||
+      ctrlShiftKey(e, 'C') ||
+      (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
+    )
+      return false;
+  };
+  
+  /////Prevention of Inspect Element - End/////
