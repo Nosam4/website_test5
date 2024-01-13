@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="no">
+    <title>K-Ville</title>
+    <link rel="stylesheet" href="k-ville-style19.css">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Nosam4/website_test5/main/favicon/favicon-32x32.png">
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PMBCK770J8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PMBCK770J8');
+</script>
+
+<body>
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="closeModal">&times;</span>
+            <h2 id="headerTextModal">How to Play</h2>
+            <p>The goal is to select the Secret Player!</p>
+            <p><u>To enter a guess, click either</u>:</p>
+            <p>Click the Dropdown Arrow (↓) or type in the Player Name (Select Player)</p>
+            <p>Click SUBMIT to confirm your choice</p>
+            <p><u>The colors indicate the proximity to the Secret Player</u>:
+                <ul>
+                    <li id="greenListHowToPlayModal">Green = Correct</li>
+                    <li id="yellowListHowToPlayModal">Yellow = Close! Within <b><em>Two Units</em></b></li>
+                    <li id="blueListHowToPlayModal">Blue = Correct Player</li>
+                </ul>
+            </p>
+            <p>To play more, the RESET Button restarts the game with a New Secret Player. When typing in a Player Name, enter a space to see all players. Scroll to see all options.</p>
+            <p id="enjoyModal">Enjoy!</p>
+        </div>
+    </div>
+
+    <!-- About the Game Modal -->
+    <div id="aboutGameModal" class="modal">
+        <div class="modal-content">
+            <span class="closeModal">&times;</span>
+            <h2 id="headerTextModal" >About the Game</h2>
+            <p> Inspired by <a href="https://www.nytimes.com/games/wordle/index.html" class="website-link" target="blank"> Wordle</a>, <a href="https://www.weddlegame.com/" class="website-link" target="blank"> Weddle</a>, & <a href="https://poeltl.dunk.town/" class="website-link" target="blank"> Poetl</a> </p>
+            <p> Game spans the entire career of Coach K: 1980 to 2022 ... and to present day. </p>
+            <p> Created by <a href="https://www.instagram.com/kvillegame/" class="instagram-link-whiteBackground" target="blank"> Mason Russell (Class of 2023)</a> </p>
+            <p> Made for my LOML, <a href="https://www.instagram.com/ambersmith322/" class="instagram-link-whiteBackground" target="blank"> Amber Smith (Class of 2024) </a> </p>
+            <p> Shoutout to <a href="https://www.instagram.com/jacksonhubbard/" class="instagram-link-whiteBackground" target="blank"> Jackson Hubbard</a> for his invaluable coding insight! </p>
+            <p> <u>Shoutout to the Charities</u>:</p>
+            <p> <a href="https://www.instagram.com/teamimpactduke/" class="instagram-link-whiteBackground" target="blank"> Team Impact</a> </p>
+            <p> <a href="https://www.instagram.com/duke_childrens/" class="instagram-link-whiteBackground" target="blank"> Duke Children's</a> </p>
+            <p> <a href="https://www.v.org" class="website-link" target="blank"> Dribble for Victory over Cancer </a> </p>
+        </div>
+    </div>
+
+    <!-- Timer Modal (Displays the Score after Two Minutes)-->
+    <div id="scoreModal" class="modal">
+        <div class="modal-content">
+            <span class="closeModal">&times;</span>
+            <h2 id="headerTextModal">Game Score</h2>
+            <p id="scoreModalText"></p> <!-- Paragraph to display the score -->
+        </div>
+    </div>
+    
+
+    
+    <div class="main-container">
+        <div class="container">
+            <div id="Top">
+                <a href="https://www.instagram.com/dukembb/" class="instagram-link" target="blank">
+                    <h1>K-VILLE</h1>
+                </a>
+                <a href="https://www.instagram.com/kvillegame/" class="instagram-link" target="blank">
+                    <h2>Duke Basketball Guessing Game</h2>
+                </a>
+                <h3><span id="guesses-remaining">0</span> out of 6 Guesses</h3>
+            </div>
+            
+          
+              <div id="dim-overlay" class="dim-overlay"></div>
+          
+          
+              <div id="button-container-left">
+                <button id="about-the-game" data-modal-target="aboutGameModal"  >?</button>
+                <button id="reset-button">Reset</button>
+          
+              </div>
+            
+              <div id="button-container-right">
+                <button id="easy-mode">Easy</button>
+                <button id="normal-mode">Normal</button>
+                <button id="hard-mode">Hard</button>
+              </div>
+            
+              <div id="custom-dropdown">
+                  <form action="" autocomplete="off">
+                      <input id="player-list" type="text" placeholder="Select Player">
+                  </form>
+                  <button id="dropDownArrow">↓</button>
+              </div>
+          
+              
+          
+              <div id="autocomplete-container"></div>
+          
+              <div id="guess-button-grid">
+                  <button id="guess-button">Submit</button>
+              </div>
+          
+              <table id="guess-table">
+                <tr>
+                  <th>Player</th>
+                  <th>Decade</th>
+                  <th>First Year</th>
+                  <th># of Years</th>
+                  <th>Position</th>
+                  <th>Height</th>
+                  <th>Number</th>
+                </tr>
+                <tr id="guess-row-1">
+                  <td class="player-1"></td>
+                  <td class="decade-1"></td>
+                  <td class="first-year-1"></td>
+                  <td class="num-years-1"></td>
+                  <td class="position-1"></td>
+                  <td class="height-1"></td>
+                  <td class="number-1"></td>
+                </tr>
+                <tr id="guess-row-2">
+                  <td class="player-2"></td>
+                  <td class="decade-2"></td>
+                  <td class="first-year-2"></td>
+                  <td class="num-years-2"></td>
+                  <td class="position-2"></td>
+                  <td class="height-2"></td>
+                  <td class="number-2"></td>
+                </tr>
+                <tr id="guess-row-3">
+                  <td class="player-3"></td>
+                  <td class="decade-3"></td>
+                  <td class="first-year-3"></td>
+                  <td class="num-years-3"></td>
+                  <td class="position-3"></td>
+                  <td class="height-3"></td>
+                  <td class="number-3"></td>
+                </tr>
+                <tr id="guess-row-4">
+                  <td class="player-4"></td>
+                  <td class="decade-4"></td>
+                  <td class="first-year-4"></td>
+                  <td class="num-years-4"></td>
+                  <td class="position-4"></td>
+                  <td class="height-4"></td>
+                  <td class="number-4"></td>
+                </tr>
+                <tr id="guess-row-5">
+                  <td class="player-5"></td>
+                  <td class="decade-5"></td>
+                  <td class="first-year-5"></td>
+                  <td class="num-years-5"></td>
+                  <td class="position-5"></td>
+                  <td class="height-5"></td>
+                  <td class="number-5"></td>
+                </tr>
+                <tr id="guess-row-6">
+                  <td class="player-6"></td>
+                  <td class="decade-6"></td>
+                  <td class="first-year-6"></td>
+                  <td class="num-years-6"></td>
+                  <td class="position-6"></td>
+                  <td class="height-6"></td>
+                  <td class="number-6"></td>
+                </tr>
+              </table>
+            
+              <div id="secret-player-units">
+                <h2>Secret Player:</h2>
+                <div id="secret-player-name"></div>
+                <div id="secret-player-instagram"></div>
+                <div id="secret-player-fact"></div>
+              </div>
+              
+          
+              <div id="bottom-buttons">
+                <button id="timer">Timer: <span id="timerDisplay">2:00</span></button>
+                <button id="how-to-play" data-modal-target="infoModal">How to Play</button>
+              </div>
+            
+              <div id="table-container">
+                <table id="score-table">
+                  <tr>
+                    <th>Difficulty</th>
+                    <th>Score</th>
+                  </tr>
+                  <tr>
+                    <td>Easy</td>
+                    <td><span id="easy-score">0</span></td>
+                  </tr>
+                  <tr>
+                    <td>Normal</td>
+                    <td><span id="normal-score">0</span></td>
+                  </tr>
+                  <tr>
+                    <td>Hard</td>
+                    <td><span id="hard-score">0</span></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          
+        </div>
+    </div>
+
+    <script src="k-ville-script19.js"></script>
+</body>
+</html>
