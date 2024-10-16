@@ -1,200 +1,200 @@
 /* CSS Grid Starts */
 .container {
-    display: grid;
-    height: 100vh;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: min-content auto auto auto min-content;
-    grid-template-areas:
-    "header header header header header"
-    ". custom-dropdown custom-dropdown custom-dropdown ."
-    ". autocomplete-container autocomplete-container autocomplete-container ."
-    "guess-table guess-table guess-table  guess-table guess-table"
-    "footer footer footer footer footer";
-  }
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: min-content auto auto auto min-content;
+  grid-template-areas:
+  "header header header header header"
+  ". custom-dropdown custom-dropdown custom-dropdown ."
+  ". autocomplete-container autocomplete-container autocomplete-container ."
+  "guess-table guess-table guess-table  guess-table guess-table"
+  "footer footer footer footer footer";
+}
 
 .header {
-    grid-area: header;
-    background-color: black;
-    color:#f1f1e6;
-    border-color:#f1f1e6;
-    border-style: solid;
-    border-width: 1px;
-    display: flex;
-    justify-content: space-between; /* Centers the inner wrapper horizontally */
-    align-items: center; /* Centers the inner wrapper vertically */
-    padding-bottom: 0.5rem; /* Optional: Adds some space around the inner wrapper */
-    padding-top: 0.5rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+  grid-area: header;
+  background-color: black;
+  color:#f1f1e6;
+  border-color:#f1f1e6;
+  border-style: solid;
+  border-width: 1px;
+  display: flex;
+  justify-content: space-between; /* Centers the inner wrapper horizontally */
+  align-items: center; /* Centers the inner wrapper vertically */
+  padding-bottom: 0.5rem; /* Optional: Adds some space around the inner wrapper */
+  padding-top: 0.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 #headerK-VILLE {
-    font-size: clamp(1rem, calc(4vw + 0.5rem), 10rem);
+  font-size: clamp(1rem, calc(4vw + 0.5rem), 10rem);
 }
 
 #headerSubtitle {
-    font-size: clamp(0.5rem, calc(1vw + 0.5rem), 8rem);
+  font-size: clamp(0.5rem, calc(1vw + 0.5rem), 8rem);
 }
 
 #headerGuesses {
-    font-size: clamp(0.5rem, calc(0.75vw + 0.5rem), 6rem);
+  font-size: clamp(0.5rem, calc(0.75vw + 0.5rem), 6rem);
 }
 
 #headerMenu {
-    font-size: clamp(0.5rem, calc(4vw + 0.5rem), 10rem);
+  font-size: clamp(0.5rem, calc(4vw + 0.5rem), 10rem);
 }
 
 #headerTimer {
-    font-size: clamp(0.5rem, calc(4vw + 0.5rem), 10rem);
+  font-size: clamp(0.5rem, calc(4vw + 0.5rem), 10rem);
 }
 
 .dropdown-heading {
-    color: #003087;
-    font-size: clamp(0.5rem, calc(1vw + 0.5rem), 10rem);
-    margin: 5px;
+  color: #003087;
+  font-size: clamp(0.5rem, calc(1vw + 0.5rem), 10rem);
+  margin: 5px;
 }
 
 .link {
-    color: black;
+  color: black;
 }
 
 #custom-dropdown{
-  grid-area:custom-dropdown;
+grid-area:custom-dropdown;
+/* background-color: rgba(0, 0, 0, .2); */
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+
+#autocomplete-container{
+  grid-area:autocomplete-container;
   /* background-color: rgba(0, 0, 0, .2); */
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 3vw;
 }
 
-#autocomplete-container{
-    grid-area:autocomplete-container;
-    /* background-color: rgba(0, 0, 0, .2); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 3vw;
-  }
-
 #guess-table{
-  grid-area:guess-table;
-  background-color: rgba(0, 0, 0, .8);
-  padding: 3vm;
-  font-size: clamp(0.5rem, calc(1vw + 0.5rem), 20rem);
-  text-shadow: 1px 1px 2px black; /* Layered text shadows */
+grid-area:guess-table;
+background-color: rgba(0, 0, 0, .8);
+padding: 3vm;
+font-size: clamp(0.5rem, calc(1vw + 0.5rem), 20rem);
+text-shadow: 1px 1px 2px black; /* Layered text shadows */
 }
 
 .footer{
-    grid-area:footer;
-    background-color: black;
-    color:#f1f1e6;
-    font-size: clamp(0.5rem, calc(3vw + 0.5rem), 8rem);
-    /* background-color: rgba(0, 0, 0, .2); */
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    text-align: center;
-  }
+  grid-area:footer;
+  background-color: black;
+  color:#f1f1e6;
+  font-size: clamp(0.5rem, calc(3vw + 0.5rem), 8rem);
+  /* background-color: rgba(0, 0, 0, .2); */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
 
 /* CSS - Grid Ends */
 
 .body-blur *:not(.modal):not(.modal *) {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 
 /* NEW DROPDOWN MENU Starts */
 
 body {
-    margin: 0;
-  }
-  
-  .link {
-    background: none;
-    border: none;
-    text-decoration: none;
-    color: #f1f1e6;
-    font-family: inherit;
-    font-size: inherit;
-    cursor: pointer;
-    padding: 0;
-  }
-  
-  .aLink {
-      color:gray;
-      cursor: pointer;
-  }
+  margin: 0;
+}
 
-  .aLink:hover {
-    color:#003087;
+.link {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #f1f1e6;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.aLink {
+    color:gray;
     cursor: pointer;
 }
 
-  .dropdown.active > .link,
-  .link:hover {
-    color: gray;
-  }
-  
-  .dropdown {
-    position: relative;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    left: 0;
-    top: calc(100% + .25rem);
-    color: black;
-    font-size: clamp(0.5rem, calc(0.75vw + 0.5rem), 8rem);
-    background-color: #f1f1e6;
-    padding: .75rem;
-    border-radius: .25rem;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
-  }
-  
-  .dropdown.active > .link + .dropdown-menu {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-  
-  .information-grid {
-    display: grid;
-    grid-template-columns: repeat(2, max-content);
-    gap: 2rem;
-  }
-  
-  .dropdown-links {
-    display: flex;
-    flex-direction: column;
-    gap: .25rem;
-  }
-  
-  .login-form > input {
-    margin-bottom: .5rem;
-  }
+.aLink:hover {
+  color:#003087;
+  cursor: pointer;
+}
+
+.dropdown.active > .link,
+.link:hover {
+  color: gray;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + .25rem);
+  color: black;
+  font-size: clamp(0.5rem, calc(0.75vw + 0.5rem), 8rem);
+  background-color: #f1f1e6;
+  padding: .75rem;
+  border-radius: .25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdown.active > .link + .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.information-grid {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 2rem;
+}
+
+.dropdown-links {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+}
+
+.login-form > input {
+  margin-bottom: .5rem;
+}
 /* NEW DROPDOWN MENU Ends */
 
 
 /* Background - Starts */
 
 html {
-    height: -webkit-fill-available;
+  height: -webkit-fill-available;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background: no-repeat center center / cover;
-  background-size: cover;
-  background-attachment: fixed;
-  height: -webkit-fill-available;
+margin: 0;
+padding: 0;
+font-family: Arial, sans-serif;
+text-align: center;
+background: no-repeat center center / cover;
+background-size: cover;
+background-attachment: fixed;
+height: -webkit-fill-available;
 }
 
 /* Background - Ends */
@@ -202,31 +202,31 @@ body {
 
 /* Guess-Table Start */
 
-  th,
-  td {
-    border-bottom: 1px solid #ddd;
-    color: #f1f1e6;
-    background-color: rgba(0, 0, 0, .6);
-    text-align: center;
+th,
+td {
+  border-bottom: 1px solid #ddd;
+  color: #f1f1e6;
+  background-color: rgba(0, 0, 0, .6);
+  text-align: center;
 }
-  
-th {
-    background-color: #003087; /* Makes Guess & Score Tables Blue Headers */
-    color: #f1f1e6;
-    text-align: center;
-  }
 
-  .guessed {
-    background-color: #003087;
-  }
-  
-  .matched {
-    background-color: #098f3e;
-  }
-  
-  .close {
-    background-color: #cca715;
-  }
+th {
+  background-color: #003087; /* Makes Guess & Score Tables Blue Headers */
+  color: #f1f1e6;
+  text-align: center;
+}
+
+.guessed {
+  background-color: #003087;
+}
+
+.matched {
+  background-color: #098f3e;
+}
+
+.close {
+  background-color: #cca715;
+}
 
 /* Guess-Table End */
 
@@ -234,309 +234,309 @@ th {
 
 /* Default font size for buttons */
 #dropDownArrow {
-  margin: 1vw;
-  font-size: clamp(0.5rem, calc(3vw + 0.5rem), 8rem);
-  padding: 8px 16px;
-  border: 3px solid black;
-  background-color: #003087;
-  color: #f1f1e6;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5); /* Box shadow */
-  text-shadow: 1px 1px 2px grey; /* Layered text shadows */
-  border-radius: 10px; /* Rounded corners */
+margin: 1vw;
+font-size: clamp(0.5rem, calc(3vw + 0.5rem), 8rem);
+padding: 8px 16px;
+border: 3px solid black;
+background-color: #003087;
+color: #f1f1e6;
+cursor: pointer;
+border-radius: 4px;
+transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5); /* Box shadow */
+text-shadow: 1px 1px 2px grey; /* Layered text shadows */
+border-radius: 10px; /* Rounded corners */
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .dropdown-options {
-    display: inline-block;
-    position: relative;
+  display: inline-block;
+  position: relative;
 }
 
 .autocomplete-list {
-    list-style: none; /* Removes default list bullets */
-    position: absolute;
-    width: 100%; /* Use 100% to fill the width of its parent or set a specific width */
-    max-height: clamp(0.5rem, calc(15vh + 0.5rem), 100rem);
-    overflow-y: auto; /* Allows vertical scrolling for long lists */
-    display: flex;
-    flex-wrap: wrap; /* Allows items to wrap to the next line */
-    justify-content: space-around; /* Evenly distributes items within the line and centers the last row */
-    padding: 0; /* Resets default padding */
-    margin: 0; /* Resets default margin */
+  list-style: none; /* Removes default list bullets */
+  position: absolute;
+  width: 100%; /* Use 100% to fill the width of its parent or set a specific width */
+  max-height: clamp(0.5rem, calc(15vh + 0.5rem), 100rem);
+  overflow-y: auto; /* Allows vertical scrolling for long lists */
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  justify-content: space-around; /* Evenly distributes items within the line and centers the last row */
+  padding: 0; /* Resets default padding */
+  margin: 0; /* Resets default margin */
 }
 
 
 .autocomplete-list li {
-    flex: 0 0 12.5%; /* Does not grow, does not shrink, takes up 12.5% of the width */
-    max-width: 12.5%; /* Ensures the item does not exceed 12.5% width, important for last row items */
-    box-sizing: border-box; /* Padding and border are included in the element's total width */
-    padding: 5px; /* Adds some space inside each item */
-    margin-bottom: 10px; /* Adds space between rows */
+  flex: 0 0 12.5%; /* Does not grow, does not shrink, takes up 12.5% of the width */
+  max-width: 12.5%; /* Ensures the item does not exceed 12.5% width, important for last row items */
+  box-sizing: border-box; /* Padding and border are included in the element's total width */
+  padding: 5px; /* Adds some space inside each item */
+  margin-bottom: 10px; /* Adds space between rows */
 }
 
 .autocomplete-list button {
-    border: 1px solid #f1f1e6; /* Defines a border, make sure to specify the border style */
-    background: rgba(0, 0, 0, 0.8);
-    color: #f1f1e6;
-    white-space: nowrap; /* Prevents text from wrapping */
-    font-size: clamp(0.5rem, 1vw, 1.5rem); /* Adjusts font size based on viewport width, within a range */
-    width: 100%; /* Ensures the button fills its container */
-    padding: 5px 10px; /* Adds padding for better button size and clickability */
-    text-align: center; /* Centers the text inside the button */
+  border: 1px solid #f1f1e6; /* Defines a border, make sure to specify the border style */
+  background: rgba(0, 0, 0, 0.8);
+  color: #f1f1e6;
+  white-space: nowrap; /* Prevents text from wrapping */
+  font-size: clamp(0.5rem, 1vw, 1.5rem); /* Adjusts font size based on viewport width, within a range */
+  width: 100%; /* Ensures the button fills its container */
+  padding: 5px 10px; /* Adds padding for better button size and clickability */
+  text-align: center; /* Centers the text inside the button */
 }
 
 
 
 .autocomplete-list button:hover {
-    transform: none; /* Slightly scale up on hover */
-    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.6); /* Enhanced box shadow on hover */
-    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+  transform: none; /* Slightly scale up on hover */
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.6); /* Enhanced box shadow on hover */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
 }
 
 
 #dropDownArrow:hover {
-  background-color: #001d59;
-  color: #ffffff;
-  border-color: #000000; /* Darken border color on hover */
-  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+background-color: #001d59;
+color: #ffffff;
+border-color: #000000; /* Darken border color on hover */
+transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
 }
 
 /* Styling for select element */
 #player-list {
-    font-size: clamp(0.5rem, calc(1vw + 0.5rem), 6rem);
-    text-align: center;
-    padding: 8px;
-    border: 3px solid black;
-    background-color: #003087;
-    color: #f1f1e6;
-    border-radius: 4px;
-    cursor: pointer;
-    width: auto; /* Set width to auto */
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  }
-  
-  #player-list:hover{
-    background-color: #001d59;
-    color: #ffffff;
-    border-color: #000000; /* Darken border color on hover */
-    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
-    transform: scale(1.05); /* Slightly scale up on hover */
-  }
+  font-size: clamp(0.5rem, calc(1vw + 0.5rem), 6rem);
+  text-align: center;
+  padding: 8px;
+  border: 3px solid black;
+  background-color: #003087;
+  color: #f1f1e6;
+  border-radius: 4px;
+  cursor: pointer;
+  width: auto; /* Set width to auto */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
 
-  /* Style disabled select */
-  #player-list:disabled , #dropDownArrow:disabled {
-    background-color: rgba(0, 0, 0, 0.6);
-    cursor: not-allowed;
-  }
+#player-list:hover{
+  background-color: #001d59;
+  color: #ffffff;
+  border-color: #000000; /* Darken border color on hover */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+  transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+/* Style disabled select */
+#player-list:disabled , #dropDownArrow:disabled {
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: not-allowed;
+}
 
 /* Player-List Options - START */
 
 /* Style the option elements within the select */
 #player-list option {
-    font-size: clamp(0.5rem, calc(1vw + 0.5rem), 8rem);
-  background-color: #003087;
-  color: #f1f1e6;
+  font-size: clamp(0.5rem, calc(1vw + 0.5rem), 8rem);
+background-color: #003087;
+color: #f1f1e6;
 }
-  
-  /* Style select when an option is hovered */
-  #player-list option:hover {
-    background-color: #001d59;
-    color: #ffffff;
-    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
-    transform: scale(1.05); /* Slightly scale up on hover */
-  }
-  
-  /* Style disabled option */
-  #player-list option:disabled {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: rgba(241, 241, 230, 0.6);
-  }
-  
-  /* Player-List Options - END */
+
+/* Style select when an option is hovered */
+#player-list option:hover {
+  background-color: #001d59;
+  color: #ffffff;
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+  transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+/* Style disabled option */
+#player-list option:disabled {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: rgba(241, 241, 230, 0.6);
+}
+
+/* Player-List Options - END */
 
 #secret-player-instagram a {
-    color: white; /* Text color of the link */
-    padding: 10px;
-    border-radius: 5px;
-    text-decoration: none; /* Removes underline from the link */
-    display: inline-block;
-    background-color: #C13584; /* Instagram-like background color */
-    font-weight: bold; /* Optional: Makes the text bold */
-    margin: 5px;
-    /* Add any additional styling as needed */
+  color: white; /* Text color of the link */
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none; /* Removes underline from the link */
+  display: inline-block;
+  background-color: #C13584; /* Instagram-like background color */
+  font-weight: bold; /* Optional: Makes the text bold */
+  margin: 5px;
+  /* Add any additional styling as needed */
 }
 
 #secret-player-instagram a:hover {
-    text-decoration: underline; /* Optional: Underline on hover */
-    background-color: #E1306C; /* Darker shade for hover effect */
-    /* Other hover effects as needed */
+  text-decoration: underline; /* Optional: Underline on hover */
+  background-color: #E1306C; /* Darker shade for hover effect */
+  /* Other hover effects as needed */
 }
 
 
 .dim-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-    pointer-events: none; /* Allows clicks to pass through */
-    opacity: 0; /* Start fully transparent */
-    z-index: 999; /* Ensure it appears above other elements */
-    transition: opacity 1s ease-in-out; /* Smooth transition for fading */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  pointer-events: none; /* Allows clicks to pass through */
+  opacity: 0; /* Start fully transparent */
+  z-index: 999; /* Ensure it appears above other elements */
+  transition: opacity 1s ease-in-out; /* Smooth transition for fading */
 }
 
 .dim-overlay.visible {
-    opacity: 1; /* Fully visible */
+  opacity: 1; /* Fully visible */
 }
 
 /* Modal - Start */
 /* Blurring effect for the main container */
 .main-container.body-blur {
-    filter: blur(5px); /* Apply blur only when the modal is open */
+  filter: blur(5px); /* Apply blur only when the modal is open */
 }
 
 
 
 /* Modal styles */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000; /* High z-index to ensure it's above other elements */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust position to be truly centered */
-    width: 90%; /* Set maximum width for mobile */
-    max-width: 1000px; /* Maximum width to control the size */
-    height: auto; /* Height can be auto */
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.0); /*  Semi-transparent background */
-    align-items: center;
-    justify-content: center;
-    padding: 20px; /* Padding to prevent content from touching the edges */
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000; /* High z-index to ensure it's above other elements */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position to be truly centered */
+  width: 90%; /* Set maximum width for mobile */
+  max-width: 1000px; /* Maximum width to control the size */
+  height: auto; /* Height can be auto */
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.0); /*  Semi-transparent background */
+  align-items: center;
+  justify-content: center;
+  padding: 20px; /* Padding to prevent content from touching the edges */
 }
 
 /* Modal content box */
 .modal-content {
-    background-color: #f1f1e6;
-    margin: 15% auto; /* Centering the modal content */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Responsive width */
-    max-width: 600px; /* Maximum width */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #f1f1e6;
+  margin: 15% auto; /* Centering the modal content */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Responsive width */
+  max-width: 600px; /* Maximum width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Close button */
 .closeModal {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .closeModal:hover,
 .closeModal:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 #headerTextModal {
-    color: #003087;
-    font-weight: bold; /* Makes the text bold */
-    text-decoration: underline; /* Underlines the text */
+  color: #003087;
+  font-weight: bold; /* Makes the text bold */
+  text-decoration: underline; /* Underlines the text */
 }
 
 #yellowListHowToPlayModal {
-    background-color: #cca715;
-    color: #f1f1e6;
+  background-color: #cca715;
+  color: #f1f1e6;
 }
 
 #greenListHowToPlayModal {
-    background-color: #098f3e;
-    color: #f1f1e6;
+  background-color: #098f3e;
+  color: #f1f1e6;
 }
 
 #blueListHowToPlayModal {
-    background-color: #003087;
-    color: #f1f1e6;
+  background-color: #003087;
+  color: #f1f1e6;
 }
 
 #enjoyModal {
-    color: #003087;
-    font-weight: bold;
+  color: #003087;
+  font-weight: bold;
 }
 
 .instagram-link {
-    text-decoration: none; /* Removes the underline from hyperlinks */
-    color: #f1f1e6; /* Instagram's brand color, or choose your own */
+  text-decoration: none; /* Removes the underline from hyperlinks */
+  color: #f1f1e6; /* Instagram's brand color, or choose your own */
 }
 
 .instagram-link h1 {
-    font-size: 2em; /* Adjust the size as necessary */
-    /* Additional styling here if needed */
+  font-size: 2em; /* Adjust the size as necessary */
+  /* Additional styling here if needed */
 }
 
 .instagram-link:hover {
-    color: #C13584; /* Darker color for hover effect */
-    /* Other hover effects can be added here */
+  color: #C13584; /* Darker color for hover effect */
+  /* Other hover effects can be added here */
 }
 
 .instagram-link-whiteBackground {
-    text-decoration: none; /* Removes the underline from hyperlinks */
-    color: #C13584; /* Instagram's brand color, or choose your own */
+  text-decoration: none; /* Removes the underline from hyperlinks */
+  color: #C13584; /* Instagram's brand color, or choose your own */
 }
 
 .instagram-link-whiteBackground h1 {
-    font-size: 2em; /* Adjust the size as necessary */
-    /* Additional styling here if needed */
+  font-size: 2em; /* Adjust the size as necessary */
+  /* Additional styling here if needed */
 }
 
 .instagram-link-whiteBackground:hover {
-    color: #f1f1e6; /* Darker color for hover effect */
-    background-color: #C13584;
-    /* Other hover effects can be added here */
+  color: #f1f1e6; /* Darker color for hover effect */
+  background-color: #C13584;
+  /* Other hover effects can be added here */
 }
 
 .website-link {
-    text-decoration: none; /* Removes the underline from hyperlinks */
-    color: #003087; /* Instagram's brand color, or choose your own */
+  text-decoration: none; /* Removes the underline from hyperlinks */
+  color: #003087; /* Instagram's brand color, or choose your own */
 }
 
 .website-link h1 {
-    font-size: 2em; /* Adjust the size as necessary */
-    /* Additional styling here if needed */
+  font-size: 2em; /* Adjust the size as necessary */
+  /* Additional styling here if needed */
 }
 
 .website-link:hover {
-    color: #f1f1e6; /* Darker color for hover effect */
-    background-color: #003087;
-    /* Other hover effects can be added here */
+  color: #f1f1e6; /* Darker color for hover effect */
+  background-color: #003087;
+  /* Other hover effects can be added here */
 }
-  
+
 .disabled-mode {
-    background-color: blue; /* Change to the desired shade of blue */
-    color: white; /* Optional: Change text color for better visibility */
-  }
-  
+  background-color: blue; /* Change to the desired shade of blue */
+  color: white; /* Optional: Change text color for better visibility */
+}
+
 
 /* Modal - End */
 
 /* COOL SUBMIT BUTTON ANIMATION - START */
 
 @keyframes wiggle {
-    0%, 100% {
-        transform: rotate(-3deg);
-    }
-    50% {
-        transform: rotate(3deg);
-    }
+  0%, 100% {
+      transform: rotate(-3deg);
+  }
+  50% {
+      transform: rotate(3deg);
+  }
 }
 
 
@@ -548,199 +548,199 @@ button {
 /* Animations - Start */
 
 @keyframes arrowAnimation {
-    0%, 100% {
-      transform: translateY(0); /* Start and end at the original position */
-    }
-    50% {
-      transform: translateY(75px); /* Move down by 75 pixels at halfway point */
-    }
+  0%, 100% {
+    transform: translateY(0); /* Start and end at the original position */
+  }
+  50% {
+    transform: translateY(75px); /* Move down by 75 pixels at halfway point */
+  }
 }
 
 #dropDownArrow, #player-list {
-    font-size: clamp(0.5rem, calc(2vw + 0.5rem), 8rem);
-    padding: 8px 12px;
-    cursor: pointer;
-    /* Prepare for animation */
-    transform: translateY(0);
+  font-size: clamp(0.5rem, calc(2vw + 0.5rem), 8rem);
+  padding: 8px 12px;
+  cursor: pointer;
+  /* Prepare for animation */
+  transform: translateY(0);
 }
 
-  
-  @keyframes flashAnimation {
-    0%, 100% { background-color: transparent; }
-    50% { background-color: #003087; }
+
+@keyframes flashAnimation {
+  0%, 100% { background-color: transparent; }
+  50% { background-color: #003087; }
 }
 
 .animate-flash {
-    animation: flashAnimation 1s ease-in-out;
+  animation: flashAnimation 1s ease-in-out;
 }
 
 /* Animations - End */
 
 .disabled-style {
-    color: #a9a9a9; /* Dim the text color to give a disabled appearance */
-    background-color: #f0f0f0; /* Change the background to a light grey */
-    cursor: not-allowed; /* Change the cursor to indicate the element is not interactable */
-    pointer-events: none; /* Optional: Prevents clicking on the element */
-    opacity: 0.5; /* Optional: Reduce the opacity to enhance the disabled look */
-  }  
+  color: #a9a9a9; /* Dim the text color to give a disabled appearance */
+  background-color: #f0f0f0; /* Change the background to a light grey */
+  cursor: not-allowed; /* Change the cursor to indicate the element is not interactable */
+  pointer-events: none; /* Optional: Prevents clicking on the element */
+  opacity: 0.5; /* Optional: Reduce the opacity to enhance the disabled look */
+}  
 
 
 /* Media query for smaller screens */
 @media (max-width: 1000px) {
-    .container {
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: min-content auto auto auto min-content;
-        grid-template-areas:
-        "header header header header header"
-        ". custom-dropdown custom-dropdown custom-dropdown ."
-        ". autocomplete-container autocomplete-container autocomplete-container ."
-        "guess-table guess-table guess-table  guess-table guess-table"
-        "footer footer footer footer footer";
-    }
-    
-    /* Styling for select element */
-    #player-list {
-        text-align: center;
-        padding: 8px;
-        border: 3px solid black;
-        background-color: #003087;
-        color: #f1f1e6;
-        border-radius: 4px;
-        cursor: pointer;
-        width: auto; /* Set width to auto */
-        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  .container {
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: min-content auto auto auto min-content;
+      grid-template-areas:
+      "header header header header header"
+      ". custom-dropdown custom-dropdown custom-dropdown ."
+      ". autocomplete-container autocomplete-container autocomplete-container ."
+      "guess-table guess-table guess-table  guess-table guess-table"
+      "footer footer footer footer footer";
+  }
+  
+  /* Styling for select element */
+  #player-list {
+      text-align: center;
+      padding: 8px;
+      border: 3px solid black;
+      background-color: #003087;
+      color: #f1f1e6;
+      border-radius: 4px;
+      cursor: pointer;
+      width: auto; /* Set width to auto */
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+
+  .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1000; /* High z-index to ensure it's above other elements */
+      top: 50%; /* Center vertically */
+      left: 50%; /* Center horizontally */
+      transform: translate(-50%, -50%); /* Adjust position to be truly centered */
+      width: 90%; /* Set maximum width for mobile */
+      max-width: 600px; /* Maximum width to control the size */
+      height: auto; /* Height can be auto */
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.0); /*  Semi-transparent background */
+      align-items: center;
+      justify-content: center;
+      padding: 20px; /* Padding to prevent content from touching the edges */
+  }
+
+  .autocomplete-list {
+      list-style: none; /* Removes default list bullets */
+      position: absolute;
+      width: 100%; /* Use 100% to fill the width of its parent or set a specific width */
+      max-height: clamp(0.5rem, calc(18vh + 0.5rem), 100rem);
+      overflow-y: auto; /* Allows vertical scrolling for long lists */
+      display: flex;
+      flex-wrap: wrap; /* Allows items to wrap to the next line */
+      justify-content: space-around; /* Evenly distributes items within the line and centers the last row */
+      padding: 0; /* Resets default padding */
+      margin: 0; /* Resets default margin */
+  }
+  
+  
+  .autocomplete-list li {
+      flex: 0 0 33%; /* Does not grow, does not shrink, takes up 25% of the width */
+      max-width: 33%; /* Ensures the item does not exceed 25% width, important for last row items */
+      box-sizing: border-box; /* Padding and border are included in the element's total width */
+      padding: 5px; /* Adds some space inside each item */
+      margin-bottom: 10px; /* Adds space between rows */
+  }
+  
+  .autocomplete-list button {
+      border: 1px solid #f1f1e6; /* Defines a border, make sure to specify the border style */
+      background: rgba(0, 0, 0, 0.8);
+      color: #f1f1e6;
+      white-space: nowrap; /* Prevents text from wrapping */
+      font-size: clamp(0.5rem,calc(1vw + 0.5rem), 1.5rem); /* Adjusts font size based on viewport width, within a range */
+      width: 100%; /* Ensures the button fills its container */
+      padding: 5px 10px; /* Adds padding for better button size and clickability */
+      text-align: center; /* Centers the text inside the button */
+  }
+
+  #player-list option {
+      font-size: clamp(0.5rem, calc(1vw + 0.5rem), 6rem);
+      background-color: #003087;
+      color: #f1f1e6;
+  }
+
+  #score-table th, #score-table td {
+      padding: 4px; /* Smaller padding */
+      font-size: clamp(0.5rem, calc(2vw + 0.5rem), 8rem);
+  }
+
+}
+
+/* Media query for smaller screens */
+@media (max-height: 500px) {
+  .container {
+      display: grid;
+      height: 100vh;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: min-content auto auto auto min-content;
+      grid-template-areas:
+      "header header header header header"
+      ". custom-dropdown custom-dropdown custom-dropdown ."
+      ". autocomplete-container autocomplete-container autocomplete-container ."
+      "guess-table guess-table guess-table  guess-table guess-table"
+      "footer footer footer footer footer";
     }
   
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed;
-        z-index: 1000; /* High z-index to ensure it's above other elements */
-        top: 50%; /* Center vertically */
-        left: 50%; /* Center horizontally */
-        transform: translate(-50%, -50%); /* Adjust position to be truly centered */
-        width: 90%; /* Set maximum width for mobile */
-        max-width: 600px; /* Maximum width to control the size */
-        height: auto; /* Height can be auto */
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.0); /*  Semi-transparent background */
-        align-items: center;
-        justify-content: center;
-        padding: 20px; /* Padding to prevent content from touching the edges */
-    }
-
-    .autocomplete-list {
-        list-style: none; /* Removes default list bullets */
-        position: absolute;
-        width: 100%; /* Use 100% to fill the width of its parent or set a specific width */
-        max-height: clamp(0.5rem, calc(18vh + 0.5rem), 100rem);
-        overflow-y: auto; /* Allows vertical scrolling for long lists */
-        display: flex;
-        flex-wrap: wrap; /* Allows items to wrap to the next line */
-        justify-content: space-around; /* Evenly distributes items within the line and centers the last row */
-        padding: 0; /* Resets default padding */
-        margin: 0; /* Resets default margin */
-    }
-    
-    
-    .autocomplete-list li {
-        flex: 0 0 33%; /* Does not grow, does not shrink, takes up 25% of the width */
-        max-width: 33%; /* Ensures the item does not exceed 25% width, important for last row items */
-        box-sizing: border-box; /* Padding and border are included in the element's total width */
-        padding: 5px; /* Adds some space inside each item */
-        margin-bottom: 10px; /* Adds space between rows */
-    }
-    
-    .autocomplete-list button {
-        border: 1px solid #f1f1e6; /* Defines a border, make sure to specify the border style */
-        background: rgba(0, 0, 0, 0.8);
-        color: #f1f1e6;
-        white-space: nowrap; /* Prevents text from wrapping */
-        font-size: clamp(0.5rem,calc(1vw + 0.5rem), 1.5rem); /* Adjusts font size based on viewport width, within a range */
-        width: 100%; /* Ensures the button fills its container */
-        padding: 5px 10px; /* Adds padding for better button size and clickability */
-        text-align: center; /* Centers the text inside the button */
-    }
-
-    #player-list option {
-        font-size: clamp(0.5rem, calc(1vw + 0.5rem), 6rem);
-        background-color: #003087;
-        color: #f1f1e6;
-    }
-
-    #score-table th, #score-table td {
-        padding: 4px; /* Smaller padding */
-        font-size: clamp(0.5rem, calc(2vw + 0.5rem), 8rem);
-    }
-
+  /* Styling for select element */
+  #player-list, #dropDownArrow {
+      font-size: clamp(0.5rem, calc(1vw + 0.5rem), 6rem);
+      text-align: center;
+      padding: 8px;
+      border: 3px solid black;
+      background-color: #003087;
+      color: #f1f1e6;
+      border-radius: 4px;
+      cursor: pointer;
+      width: auto; /* Set width to auto */
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   }
 
-  /* Media query for smaller screens */
-  @media (max-height: 500px) {
-    .container {
-        display: grid;
-        height: 100vh;
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: min-content auto auto auto min-content;
-        grid-template-areas:
-        "header header header header header"
-        ". custom-dropdown custom-dropdown custom-dropdown ."
-        ". autocomplete-container autocomplete-container autocomplete-container ."
-        "guess-table guess-table guess-table  guess-table guess-table"
-        "footer footer footer footer footer";
-      }
-    
-    /* Styling for select element */
-    #player-list, #dropDownArrow {
-        font-size: clamp(0.5rem, calc(1vw + 0.5rem), 6rem);
-        text-align: center;
-        padding: 8px;
-        border: 3px solid black;
-        background-color: #003087;
-        color: #f1f1e6;
-        border-radius: 4px;
-        cursor: pointer;
-        width: auto; /* Set width to auto */
-        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    }
 
-
-    .autocomplete-list {
-        list-style: none; /* Removes default list bullets */
-        position: absolute;
-        width: 100%; /* Use 100% to fill the width of its parent or set a specific width */
-        max-height: clamp(0.5rem, calc(13vh + 0.5rem), 100rem);
-        overflow-y: auto; /* Allows vertical scrolling for long lists */
-        display: flex;
-        flex-wrap: wrap; /* Allows items to wrap to the next line */
-        justify-content: space-around; /* Evenly distributes items within the line and centers the last row */
-        padding: 0; /* Resets default padding */
-        margin: 0; /* Resets default margin */
-    }
-    
-    
-    .autocomplete-list li {
-        flex: 0 0 25%; /* Does not grow, does not shrink, takes up 25% of the width */
-        max-width: 25%; /* Ensures the item does not exceed 25% width, important for last row items */
-        box-sizing: border-box; /* Padding and border are included in the element's total width */
-        padding: 1px; /* Adds some space inside each item */
-        margin-bottom: 10px; /* Adds space between rows */
-    }
-    
-    .autocomplete-list button {
-        border: 1px solid #f1f1e6; /* Defines a border, make sure to specify the border style */
-        background: rgba(0, 0, 0, 0.8);
-        color: #f1f1e6;
-        white-space: nowrap; /* Prevents text from wrapping */
-        font-size: clamp(0.5rem,calc(0.5vw + 0.5rem), 1.5rem); /* Adjusts font size based on viewport width, within a range */
-        width: 100%; /* Ensures the button fills its container */
-        padding: 1px 2px; /* Adds padding for better button size and clickability */
-        text-align: center; /* Centers the text inside the button */
-    }
-
-
-    #score-table th, #score-table td {
-        padding: 4px; /* Smaller padding */
-        font-size: clamp(0.8rem, 1vw, 1rem); /* Larger font size relative to viewport width */
-    }
-
+  .autocomplete-list {
+      list-style: none; /* Removes default list bullets */
+      position: absolute;
+      width: 100%; /* Use 100% to fill the width of its parent or set a specific width */
+      max-height: clamp(0.5rem, calc(13vh + 0.5rem), 100rem);
+      overflow-y: auto; /* Allows vertical scrolling for long lists */
+      display: flex;
+      flex-wrap: wrap; /* Allows items to wrap to the next line */
+      justify-content: space-around; /* Evenly distributes items within the line and centers the last row */
+      padding: 0; /* Resets default padding */
+      margin: 0; /* Resets default margin */
   }
+  
+  
+  .autocomplete-list li {
+      flex: 0 0 25%; /* Does not grow, does not shrink, takes up 25% of the width */
+      max-width: 25%; /* Ensures the item does not exceed 25% width, important for last row items */
+      box-sizing: border-box; /* Padding and border are included in the element's total width */
+      padding: 1px; /* Adds some space inside each item */
+      margin-bottom: 10px; /* Adds space between rows */
+  }
+  
+  .autocomplete-list button {
+      border: 1px solid #f1f1e6; /* Defines a border, make sure to specify the border style */
+      background: rgba(0, 0, 0, 0.8);
+      color: #f1f1e6;
+      white-space: nowrap; /* Prevents text from wrapping */
+      font-size: clamp(0.5rem,calc(0.5vw + 0.5rem), 1.5rem); /* Adjusts font size based on viewport width, within a range */
+      width: 100%; /* Ensures the button fills its container */
+      padding: 1px 2px; /* Adds padding for better button size and clickability */
+      text-align: center; /* Centers the text inside the button */
+  }
+
+
+  #score-table th, #score-table td {
+      padding: 4px; /* Smaller padding */
+      font-size: clamp(0.8rem, 1vw, 1rem); /* Larger font size relative to viewport width */
+  }
+
+}
